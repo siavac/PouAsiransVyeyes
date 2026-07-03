@@ -3,22 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIAVAC - Rekritman Ajan Ankètè</title>
+<title>SIAVAC - Asirans Vyeyès Ajan</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#eef0f2;
+font-family:Arial,sans-serif;
+background:#eee;
 padding:10px;
 }
 
@@ -26,207 +18,185 @@ padding:10px;
 max-width:900px;
 margin:auto;
 background:#fff;
-padding:18px;
+padding:20px;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.15);
+box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
-/* HEADER */
 .header{
 text-align:center;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
 .header img{
 width:90px;
-height:90px;
-object-fit:contain;
 }
 
 .header h1{
 color:#003366;
-font-size:24px;
+margin:5px 0;
 }
 
-.header h2{
-font-size:14px;
-color:#444;
+.section{
+margin-top:20px;
+padding:15px;
+border:1px solid #ccc;
+border-radius:8px;
 }
 
-/* INFO BOX */
-.info-box{
-background:#f1f6ff;
-padding:10px;
-border-left:4px solid #003366;
-margin-bottom:15px;
-font-size:13px;
-}
-
-/* SECTION */
-.section-title{
+.title{
 background:#003366;
 color:#fff;
 padding:8px;
-font-size:15px;
-margin-top:15px;
 border-radius:5px;
+font-size:14px;
+margin-bottom:10px;
+}
+
+p{
+font-size:14px;
+line-height:22px;
+text-align:justify;
 }
 
 label{
 font-weight:bold;
-font-size:13px;
-margin-top:10px;
 display:block;
+margin-top:10px;
 }
 
-input,textarea{
+input{
 width:100%;
 padding:10px;
+margin-top:5px;
 border:1px solid #aaa;
 border-radius:6px;
-font-size:14px;
-}
-
-textarea{
-min-height:80px;
-resize:vertical;
 }
 
 button{
 width:100%;
 margin-top:20px;
+padding:12px;
 background:#003366;
 color:#fff;
-padding:12px;
 border:none;
 border-radius:6px;
-font-size:16px;
 cursor:pointer;
+font-size:16px;
 }
 
 button:hover{
 background:#0050a5;
 }
 
-.signature{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-margin-top:40px;
-}
-
-.signature div{
-width:100%;
-text-align:center;
-}
-
-.line{
-border-top:1px solid #000;
-margin-top:45px;
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-.signature div{width:40%}
-}
-
-/* PRINT */
-@media print{
-button{display:none}
+/* PAGE BREAK */
+.page{
+page-break-after: always;
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container" id="pdf">
 
+<!-- PAGE 1 -->
+<div class="page">
+
 <div class="header">
 <img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg">
 <h1>SIAVAC</h1>
-<h2>Service Intelligence AntiVol AntiCrime</h2>
-<h2>FÒM REKRITMAN AJAN ANKÈTÈ</h2>
+<h3>Dosye Asirans Vyeyès Ajan</h3>
 </div>
 
-<div class="info-box">
-Ranpli fòm sa ak verite. SIAVAC ap itilize enfòmasyon sa pou evalyasyon rekritman ou.
-</div>
+<div class="section">
+<div class="title">ENFÒMASYON AJAN</div>
 
-<div class="section-title">ENFÒMASYON PÈSONÈL</div>
+<label>Non Ajan an</label>
+<input type="text" placeholder="Ekri non konplè ajan an">
 
-<label>Non ak Siyati</label>
-<input type="text">
-
-<label>Telefòn</label>
-<input type="text">
-
-<label>Adrès</label>
-<input type="text">
-
-<label>Dat nesans</label>
+<label>Dat Asirans lan Kòmanse</label>
 <input type="date">
+</div>
 
-<label>Laj</label>
-<input type="text">
+<div class="section">
+<div class="title">DEKLARASYON</div>
+<p>
+Dokiman sa se yon dosye asirans vyeyès ki bay ajan SIAVAC yo pwoteksyon sosyal sou long tèm.
+Tout enfòmasyon ki nan dokiman sa dwe respekte règleman entèn SIAVAC.
+</p>
+</div>
 
-<div class="section-title">ENFÒMASYON REFERANS</div>
+</div>
 
-<label>Nimewo Telefòn Referans (1 moun ki ka konfime ou)</label>
-<input type="text">
+<!-- PAGE 2 -->
+<div class="page">
 
-<div class="section-title">MOTIVASYON</div>
+<div class="section">
+<div class="title">KONDISYON ASIRANS LAN</div>
 
-<label>Ekri kisa ki motive ou pou antre nan SIAVAC</label>
-<textarea style="min-height:150px"></textarea>
+<p>
+1. Ajan an dwe aktif nan sèvis SIAVAC.<br>
+2. Asirans lan kouvri peryòd travay ak kontribisyon ajan an.<br>
+3. Nan ka retrèt, SIAVAC ka bay sipò selon règleman entèn yo.<br>
+4. Asirans lan ka modifye selon desizyon administrasyon SIAVAC.
+</p>
+</div>
 
-<div class="section-title">DEKLARASYON</div>
+<div class="section">
+<div class="title">DWA AJAN</div>
 
-<p style="font-size:13px;line-height:22px;">
-Mwen konfime tout enfòmasyon mwen bay yo se verite. Mwen konprann SIAVAC ka verifye yo pandan pwosesis rekritman an.
+<p>
+- Dwa pou jwenn sipò apre peryòd sèvis.<br>
+- Dwa pou resevwa enfòmasyon sou dosye li.<br>
+- Dwa pou mande verifikasyon sou kontribisyon li yo.
+</p>
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+
+<div class="section">
+<div class="title">RESPONSABILITE AJAN</div>
+
+<p>
+- Ajan an dwe respekte disiplin SIAVAC.<br>
+- Ajan an dwe travay ak onètete ak respè.<br>
+- Nenpòt fo deklarasyon ka anile asirans lan.
+</p>
+</div>
+
+<div class="section">
+<div class="title">SÈTIFIKASYON</div>
+
+<p>
+Mwen konfime mwen li epi mwen aksepte tout kondisyon ki nan dosye asirans sa.
 </p>
 
-<div class="signature">
+<label>Non Ajan an (Siyati dijital)</label>
+<input type="text">
 
-<div>
-<div class="line"></div>
-Kandida
-</div>
-
-<div>
-<div class="line"></div>
-SIAVAC
 </div>
 
 </div>
 
-<button onclick="downloadPDF()">📄 Telechaje Fòm Rekritman</button>
+<button onclick="downloadPDF()">📄 Telechaje Dosye Asirans lan</button>
 
 </div>
 
 <script>
 function downloadPDF(){
-
 const element = document.getElementById("pdf");
 
 html2pdf().set({
-margin:0.4,
-filename:'SIAVAC_Rekritman_Ajan_Enketè.pdf',
-image:{type:'jpeg',quality:1},
-html2canvas:{
-scale:2,
-useCORS:true,
-scrollY:0,
-windowWidth:element.scrollWidth
-},
-jsPDF:{
-unit:'mm',
-format:'a4',
-orientation:'portrait'
-},
-pagebreak:{
-mode:['css','legacy','avoid-all']
-}
+margin:10,
+filename:'SIAVAC_Asirans_Vyeyes_Ajan.pdf',
+image:{type:'jpeg',quality:0.98},
+html2canvas:{scale:2,useCORS:true},
+jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+pagebreak:{mode:['css','legacy']}
 }).from(element).save();
 }
 </script>
