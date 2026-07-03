@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIAVAC - Rekritman Ajan Ankètè</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#eef0f2;
+padding:10px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:18px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+/* HEADER */
+.header{
+text-align:center;
+margin-bottom:15px;
+}
+
+.header img{
+width:90px;
+height:90px;
+object-fit:contain;
+}
+
+.header h1{
+color:#003366;
+font-size:24px;
+}
+
+.header h2{
+font-size:14px;
+color:#444;
+}
+
+/* INFO BOX */
+.info-box{
+background:#f1f6ff;
+padding:10px;
+border-left:4px solid #003366;
+margin-bottom:15px;
+font-size:13px;
+}
+
+/* SECTION */
+.section-title{
+background:#003366;
+color:#fff;
+padding:8px;
+font-size:15px;
+margin-top:15px;
+border-radius:5px;
+}
+
+label{
+font-weight:bold;
+font-size:13px;
+margin-top:10px;
+display:block;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+border:1px solid #aaa;
+border-radius:6px;
+font-size:14px;
+}
+
+textarea{
+min-height:80px;
+resize:vertical;
+}
+
+button{
+width:100%;
+margin-top:20px;
+background:#003366;
+color:#fff;
+padding:12px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0050a5;
+}
+
+.signature{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.signature div{
+width:100%;
+text-align:center;
+}
+
+.line{
+border-top:1px solid #000;
+margin-top:45px;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+.signature div{width:40%}
+}
+
+/* PRINT */
+@media print{
+button{display:none}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="pdf">
+
+<div class="header">
+<img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg">
+<h1>SIAVAC</h1>
+<h2>Service Intelligence AntiVol AntiCrime</h2>
+<h2>FÒM REKRITMAN AJAN ANKÈTÈ</h2>
+</div>
+
+<div class="info-box">
+Ranpli fòm sa ak verite. SIAVAC ap itilize enfòmasyon sa pou evalyasyon rekritman ou.
+</div>
+
+<div class="section-title">ENFÒMASYON PÈSONÈL</div>
+
+<label>Non ak Siyati</label>
+<input type="text">
+
+<label>Telefòn</label>
+<input type="text">
+
+<label>Adrès</label>
+<input type="text">
+
+<label>Dat nesans</label>
+<input type="date">
+
+<label>Laj</label>
+<input type="text">
+
+<div class="section-title">ENFÒMASYON REFERANS</div>
+
+<label>Nimewo Telefòn Referans (1 moun ki ka konfime ou)</label>
+<input type="text">
+
+<div class="section-title">MOTIVASYON</div>
+
+<label>Ekri kisa ki motive ou pou antre nan SIAVAC</label>
+<textarea style="min-height:150px"></textarea>
+
+<div class="section-title">DEKLARASYON</div>
+
+<p style="font-size:13px;line-height:22px;">
+Mwen konfime tout enfòmasyon mwen bay yo se verite. Mwen konprann SIAVAC ka verifye yo pandan pwosesis rekritman an.
+</p>
+
+<div class="signature">
+
+<div>
+<div class="line"></div>
+Kandida
+</div>
+
+<div>
+<div class="line"></div>
+SIAVAC
+</div>
+
+</div>
+
+<button onclick="downloadPDF()">📄 Telechaje Fòm Rekritman</button>
+
+</div>
+
+<script>
+function downloadPDF(){
+
+const element = document.getElementById("pdf");
+
+html2pdf().set({
+margin:0.4,
+filename:'SIAVAC_Rekritman_Ajan_Enketè.pdf',
+image:{type:'jpeg',quality:1},
+html2canvas:{
+scale:2,
+useCORS:true,
+scrollY:0,
+windowWidth:element.scrollWidth
+},
+jsPDF:{
+unit:'mm',
+format:'a4',
+orientation:'portrait'
+},
+pagebreak:{
+mode:['css','legacy','avoid-all']
+}
+}).from(element).save();
+}
+</script>
+
+</body>
+</html>
