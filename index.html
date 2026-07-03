@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIAVAC - Asirans Vyeyès</title>
+<title>SIAVAC Asirans Vyeyès</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
 body{
-font-family:Arial,sans-serif;
+font-family:Arial;
 background:#eee;
 padding:5px;
 }
@@ -21,19 +21,18 @@ background:#fff;
 padding:10px;
 }
 
+/* 🔥 IMPORTANT FIX */
 #pdf{
 width:100%;
 }
 
-/* 🔥 FIX PAGES */
+/* PAGE = NO FIXED HEIGHT (SA KOTE ERÈ A TE YE) */
 .page{
 width:100%;
-height:297mm;
-padding:12mm;
+padding:15px;
 box-sizing:border-box;
 page-break-after:always;
 break-after:page;
-overflow:hidden;
 }
 
 .page:last-child{
@@ -53,11 +52,6 @@ width:70px;
 .header h1{
 color:#003366;
 margin:5px 0;
-font-size:22px;
-}
-
-.header h3{
-font-size:14px;
 }
 
 /* BOX */
@@ -74,13 +68,12 @@ color:#fff;
 padding:6px;
 border-radius:5px;
 font-size:13px;
-margin-bottom:8px;
 }
 
 label{
-font-weight:bold;
 display:block;
 margin-top:8px;
+font-weight:bold;
 font-size:13px;
 }
 
@@ -90,13 +83,6 @@ padding:8px;
 margin-top:4px;
 border:1px solid #aaa;
 border-radius:6px;
-font-size:14px;
-}
-
-/* TEXT */
-p{
-font-size:13px;
-line-height:20px;
 }
 
 /* BUTTON */
@@ -110,13 +96,6 @@ border:none;
 border-radius:6px;
 font-size:15px;
 cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.page{
-padding:8mm;
-}
 }
 </style>
 </head>
@@ -141,18 +120,13 @@ padding:8mm;
 <input type="text" id="siavac_id" readonly>
 
 <label>Non Ajan</label>
-<input type="text" placeholder="Ekri non konplè">
+<input type="text" placeholder="Non konplè">
+
+<label>Telefòn</label>
+<input type="text">
 
 <label>Dat Asirans Kòmanse</label>
 <input type="date">
-</div>
-
-<div class="section">
-<div class="title">DEKLARASYON</div>
-<p>
-Dokiman sa se yon dosye asirans vyeyès SIAVAC ki garanti pwoteksyon sosyal pou ajan yo.
-Tout enfòmasyon dwe verifye selon règ SIAVAC.
-</p>
 </div>
 
 </div>
@@ -161,33 +135,23 @@ Tout enfòmasyon dwe verifye selon règ SIAVAC.
 <div class="page">
 
 <div class="section">
-<div class="title">KONDISYON ASIRANS LAN</div>
-
+<div class="title">KONDISYON</div>
 <p>
-1. Ajan dwe aktif nan SIAVAC.<br>
-2. Asirans lan kouvri sèvis li.<br>
-3. Benefis yo depann de règleman SIAVAC.<br>
-4. Ka chanje selon administrasyon.
+Ajan dwe aktif nan SIAVAC. Asirans lan kouvri sèvis li epi li ka modifye selon règ entèn.
 </p>
 </div>
 
 <div class="section">
-<div class="title">DWA AJAN</div>
-
+<div class="title">DWA</div>
 <p>
-- Dwa pou verifye dosye li.<br>
-- Dwa pou benefis apre sèvis.<br>
-- Dwa pou enfòmasyon klè.
+Dwa pou jwenn enfòmasyon, verifye dosye, epi resevwa benefis selon sèvis.
 </p>
 </div>
 
 <div class="section">
 <div class="title">RESPONSABILITE</div>
-
 <p>
-- Respekte règ SIAVAC.<br>
-- Travay ak onètete.<br>
-- Pa bay fo enfòmasyon.
+Ajan dwe respekte règ SIAVAC epi pa bay fo enfòmasyon.
 </p>
 </div>
 
@@ -197,48 +161,39 @@ Tout enfòmasyon dwe verifye selon règ SIAVAC.
 <div class="page">
 
 <div class="section">
-<div class="title">SÈTIFIKASYON FINAL</div>
+<div class="title">SÈTIFIKASYON</div>
 
 <p>
-Mwen konfime tout enfòmasyon mwen bay yo se verite epi mwen aksepte kondisyon SIAVAC.
+Mwen konfime tout enfòmasyon mwen bay yo se verite.
 </p>
 
 <label>Siyati Ajan</label>
 <input type="text">
 </div>
 
-<div class="section">
-<div class="title">NÒT FINAL</div>
-
-<p>
-Dokiman sa se yon dosye ofisyèl SIAVAC ki kapab itilize pou dosye administratif ak verifikasyon entèn.
-</p>
 </div>
 
-</div>
-
-<button onclick="downloadPDF()">📄 Telechaje Dosye a</button>
+<button onclick="downloadPDF()">📄 Telechaje PDF</button>
 
 </div>
 
 <script>
-// ID otomatik
+// ID OTOMATIK
 function generateID(){
 const year = new Date().getFullYear();
 const rand = Math.floor(100000 + Math.random()*900000);
 document.getElementById("siavac_id").value =
 "SIAVAC-" + year + "-" + rand;
 }
-
 window.onload = generateID;
 
-// PDF FIXED
+// PDF STABLE
 function downloadPDF(){
 const element = document.getElementById("pdf");
 
 html2pdf().set({
-margin: 0,
-filename: 'SIAVAC_Asirans_3Paj.pdf',
+margin: 5,
+filename: 'SIAVAC_Asirans.pdf',
 image: { type: 'jpeg', quality: 0.98 },
 html2canvas: {
 scale: 2,
@@ -251,7 +206,7 @@ format: 'a4',
 orientation: 'portrait'
 },
 pagebreak: {
-mode: ['css', 'legacy']
+mode: ['css']
 }
 }).from(element).save();
 }
