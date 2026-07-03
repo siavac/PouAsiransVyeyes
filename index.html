@@ -11,35 +11,62 @@
 body{
 font-family:Arial,sans-serif;
 background:#eee;
-padding:10px;
+padding:5px;
 }
 
 .container{
 max-width:900px;
 margin:auto;
 background:#fff;
-padding:20px;
+padding:10px;
 border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
+#pdf{
+width:100%;
+margin:auto;
+}
+
+/* PAGE */
+.page{
+width:100%;
+max-width:210mm;
+min-height:297mm;
+padding:12px;
+box-sizing:border-box;
+page-break-after:always;
+break-after:page;
+}
+
+.page:last-child{
+page-break-after:auto;
+}
+
+/* HEADER */
 .header{
 text-align:center;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .header img{
-width:90px;
+width:70px;
 }
 
 .header h1{
 color:#003366;
 margin:5px 0;
+font-size:22px;
 }
 
+.header h3{
+font-size:14px;
+}
+
+/* SECTION */
 .section{
-margin-top:20px;
-padding:15px;
+margin-top:15px;
+padding:10px;
 border:1px solid #ccc;
 border-radius:8px;
 }
@@ -47,51 +74,50 @@ border-radius:8px;
 .title{
 background:#003366;
 color:#fff;
-padding:8px;
+padding:6px;
 border-radius:5px;
-font-size:14px;
-margin-bottom:10px;
-}
-
-p{
-font-size:14px;
-line-height:22px;
-text-align:justify;
+font-size:13px;
+margin-bottom:8px;
 }
 
 label{
 font-weight:bold;
 display:block;
-margin-top:10px;
+margin-top:8px;
+font-size:13px;
 }
 
 input{
 width:100%;
-padding:10px;
-margin-top:5px;
+padding:9px;
+margin-top:4px;
 border:1px solid #aaa;
 border-radius:6px;
+font-size:14px;
 }
 
+/* BUTTON */
 button{
 width:100%;
-margin-top:20px;
+margin-top:15px;
 padding:12px;
 background:#003366;
 color:#fff;
 border:none;
 border-radius:6px;
+font-size:15px;
 cursor:pointer;
-font-size:16px;
 }
 
 button:hover{
 background:#0050a5;
 }
 
-/* PAGE BREAK */
-.page{
-page-break-after: always;
+/* MOBILE */
+@media(max-width:768px){
+body{padding:5px;}
+.container{padding:8px;}
+.page{padding:10px;}
 }
 </style>
 </head>
@@ -112,6 +138,9 @@ page-break-after: always;
 <div class="section">
 <div class="title">ENFÒMASYON AJAN</div>
 
+<label>Nimewo Dosye (ID SIAVAC)</label>
+<input type="text" id="siavac_id" readonly>
+
 <label>Non Ajan an</label>
 <input type="text" placeholder="Ekri non konplè ajan an">
 
@@ -121,9 +150,9 @@ page-break-after: always;
 
 <div class="section">
 <div class="title">DEKLARASYON</div>
-<p>
-Dokiman sa se yon dosye asirans vyeyès ki bay ajan SIAVAC yo pwoteksyon sosyal sou long tèm.
-Tout enfòmasyon ki nan dokiman sa dwe respekte règleman entèn SIAVAC.
+<p style="font-size:13px;line-height:20px;">
+Dokiman sa se yon dosye asirans vyeyès SIAVAC ki bay ajan yo pwoteksyon sosyal sou long tèm.
+Tout enfòmasyon dwe verifye selon règleman SIAVAC.
 </p>
 </div>
 
@@ -135,21 +164,21 @@ Tout enfòmasyon ki nan dokiman sa dwe respekte règleman entèn SIAVAC.
 <div class="section">
 <div class="title">KONDISYON ASIRANS LAN</div>
 
-<p>
+<p style="font-size:13px;line-height:20px;">
 1. Ajan an dwe aktif nan sèvis SIAVAC.<br>
-2. Asirans lan kouvri peryòd travay ak kontribisyon ajan an.<br>
-3. Nan ka retrèt, SIAVAC ka bay sipò selon règleman entèn yo.<br>
-4. Asirans lan ka modifye selon desizyon administrasyon SIAVAC.
+2. Asirans lan kouvri peryòd sèvis la.<br>
+3. Benefis yo depann de règleman entèn SIAVAC.<br>
+4. Administrasyon ka modifye kondisyon yo.
 </p>
 </div>
 
 <div class="section">
 <div class="title">DWA AJAN</div>
 
-<p>
-- Dwa pou jwenn sipò apre peryòd sèvis.<br>
-- Dwa pou resevwa enfòmasyon sou dosye li.<br>
-- Dwa pou mande verifikasyon sou kontribisyon li yo.
+<p style="font-size:13px;line-height:20px;">
+- Dwa pou jwenn enfòmasyon sou dosye li.<br>
+- Dwa pou benefis selon sèvis li.<br>
+- Dwa pou verifye kontribisyon li yo.
 </p>
 </div>
 
@@ -161,42 +190,64 @@ Tout enfòmasyon ki nan dokiman sa dwe respekte règleman entèn SIAVAC.
 <div class="section">
 <div class="title">RESPONSABILITE AJAN</div>
 
-<p>
-- Ajan an dwe respekte disiplin SIAVAC.<br>
-- Ajan an dwe travay ak onètete ak respè.<br>
-- Nenpòt fo deklarasyon ka anile asirans lan.
+<p style="font-size:13px;line-height:20px;">
+- Respekte règ SIAVAC.<br>
+- Travay ak onètete.<br>
+- Evite fo deklarasyon.
 </p>
 </div>
 
 <div class="section">
 <div class="title">SÈTIFIKASYON</div>
 
-<p>
-Mwen konfime mwen li epi mwen aksepte tout kondisyon ki nan dosye asirans sa.
+<p style="font-size:13px;">
+Mwen konfime mwen aksepte tout kondisyon ki nan dosye sa.
 </p>
 
-<label>Non Ajan an (Siyati dijital)</label>
+<label>Siyati Ajan an</label>
 <input type="text">
 
 </div>
 
 </div>
 
-<button onclick="downloadPDF()">📄 Telechaje Dosye Asirans lan</button>
+<button onclick="downloadPDF()">📄 Telechaje PDF la</button>
 
 </div>
 
 <script>
+// ID otomatik SIAVAC
+function generateID(){
+const year = new Date().getFullYear();
+const random = Math.floor(100000 + Math.random() * 900000);
+document.getElementById("siavac_id").value =
+"SIAVAC-" + year + "-" + random;
+}
+
+window.onload = generateID;
+
+// PDF DOWNLOAD
 function downloadPDF(){
 const element = document.getElementById("pdf");
 
 html2pdf().set({
-margin:10,
-filename:'SIAVAC_Asirans_Vyeyes_Ajan.pdf',
-image:{type:'jpeg',quality:0.98},
-html2canvas:{scale:2,useCORS:true},
-jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
-pagebreak:{mode:['css','legacy']}
+margin: 5,
+filename: 'SIAVAC_Asirans_Vyeyes_Ajan.pdf',
+image: { type: 'jpeg', quality: 0.98 },
+html2canvas: {
+scale: 2,
+useCORS: true,
+scrollY: 0,
+windowWidth: element.scrollWidth
+},
+jsPDF: {
+unit: 'mm',
+format: 'a4',
+orientation: 'portrait'
+},
+pagebreak: {
+mode: ['css', 'legacy']
+}
 }).from(element).save();
 }
 </script>
